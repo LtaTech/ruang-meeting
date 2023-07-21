@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Filament\Resources\BookingResource;
 use App\Filament\Resources\BranchResource;
 use App\Filament\Resources\RoomResource;
 use Filament\Facades\Filament;
@@ -47,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
                     ]),
                 NavigationGroup::make('')
                     ->items([
+                        ...BookingResource::getNavigationItems(),
                         ...RoomResource::getNavigationItems()
                     ]),
                 NavigationGroup::make('Master Data')

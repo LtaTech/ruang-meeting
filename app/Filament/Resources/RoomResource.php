@@ -16,6 +16,8 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -46,13 +48,11 @@ class RoomResource extends Resource
                             ->columnSpan(2),
                         Grid::make(2)
                             ->schema([
-                                Select::make('technologies')
+                                Select::make('facilities')
                                     ->multiple()
                                     ->options([
-                                        'tailwind' => 'Tailwind CSS',
-                                        'alpine' => 'Alpine.js',
-                                        'laravel' => 'Laravel',
-                                        'livewire' => 'Laravel Livewire',
+                                        'AC' => 'AC',
+                                        'Projector' => 'Projector',
                                     ]),
                                 Toggle::make('is_published')
                                     ->inline(false)
@@ -66,7 +66,10 @@ class RoomResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name'),
+                TextColumn::make('branch.name'),
+                TextColumn::make('facilities'),
+                ToggleColumn::make('is_published')
             ])
             ->filters([
                 //
