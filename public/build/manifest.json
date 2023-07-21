@@ -4,13 +4,8 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
-  "resources/css/filament.css": {
-    "file": "assets/filament-7ad65044.css",
-    "isEntry": true,
-    "src": "resources/css/filament.css"
-  },
   "resources/js/app.js": {
-    "file": "assets/app-6562a16a.js",
+    "file": "assets/app-61838782.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

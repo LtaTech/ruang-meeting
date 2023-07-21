@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Filament\Resources\BranchResource;
+use App\Filament\Resources\RoomResource;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
@@ -30,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Filament::serving(function () {
-            Filament::registerViteTheme('resources/css/filament.css');
+            Filament::registerViteTheme('resources/css/app.css');
         });
 
         Filament::navigation(function (NavigationBuilder $builder): NavigationBuilder {
@@ -44,8 +45,10 @@ class AppServiceProvider extends ServiceProvider
                             ->isActiveWhen(fn (): bool => request()->routeIs('filament.pages.dashboard'))
                             ->url(route('filament.pages.dashboard')),
                     ]),
-                NavigationGroup::make('Website')
-                    ->items([]),
+                NavigationGroup::make('')
+                    ->items([
+                        ...RoomResource::getNavigationItems()
+                    ]),
                 NavigationGroup::make('Master Data')
                     ->items([
                         ...BranchResource::getNavigationItems()
