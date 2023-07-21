@@ -10,6 +10,7 @@ export default defineConfig({
                 'app/Http/Livewire/**',
                 'app/Forms/Components/**',
             ],
-        }),
+            // refresh: true
+        })
     ],
 })

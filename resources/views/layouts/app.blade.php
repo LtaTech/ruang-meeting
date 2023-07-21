@@ -8,21 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <title>{{ config('app.name') }}</title>
-
-        <style>
-            [x-cloak] {
-                display: none !important;
-            }
-        </style>
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @livewireStyles
-        @livewireScripts
-        @stack('scripts')
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+        @vite('resources/css/app.css')
     </head>
 
     <body class="antialiased">
-        {{ $slot }}
-
-        @livewire('notifications')
+      @yield('content')
     </body>
 </html>
