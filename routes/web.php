@@ -14,3 +14,4 @@ use App\Http\Controllers\LandingController;
 */
 
 Route::get('/', [LandingController::class, 'index']);
+Route::get('/room/{room:id}', [LandingController::class, 'detail']);

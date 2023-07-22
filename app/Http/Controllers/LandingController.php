@@ -35,4 +35,8 @@ class LandingController extends Controller
 
         return view('landing.index', compact('rooms'));
     }
+
+    public function detail(Room $room){
+        return $room;
+    }
 }

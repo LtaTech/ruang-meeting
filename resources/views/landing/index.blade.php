@@ -6,7 +6,9 @@
                 <div
                     class="max-w-7xl mx-auto h-full flex justify-center items-center px-5 lg:items-end lg:justify-between lg:pb-20 lg:px-20">
                     <div class="pb-20">
-                        <h1 class="text-4xl font-medium text-white">Layanan Penjadwalan</h1>
+                        <div class="bg-blue-500 w-40 pb-2 px-2">
+                            <h1 class="text-4xl font-medium text-white">Booking</h1>
+                        </div>
                         <h1 class="text-6xl font-bold text-white">Ruangan Meeting</h1>
                     </div>
                     <div class="w-[30em] py-10 bg-white rounded-lg px-5 space-y-6">
@@ -48,17 +50,11 @@
                             <div class="py-4">
                                 <p class="text-gray-400 text-sm">Fasilitas</p>
                             </div>
-                            @foreach ($room['facilities'] as $facilities)
-                                <span class="text-sm p-2 bg-slate-100">{{ $facilities }}</span>
-                            @endforeach
-                        </div>
-                        <div class="pt-4 pb-0">
-                            <p class="text-gray-400 text-sm">Agenda</p>
-                            @if ($room['book'] > 0)
-                                <h1 class="font-semibold">{{ $room['book'] }}</h1>
-                            @else
-                                <h1 class="font-semibold text-gray-300">Aganda kosong</h1>
-                            @endif
+                            <div class="w-full flex space-x-3 overflow-x-scroll hide-scroll">
+                                @foreach ($room['facilities'] as $facilities)
+                                    <span class="flex-shrink-0 text-sm py-1 px-3 rounded bg-blue-50 border border-blue-500 text-blue-500">{{ $facilities }}</span>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 @endforeach
